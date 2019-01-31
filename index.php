@@ -31,7 +31,7 @@ if ( $userdate == false){
 					<li class="new"><a class="firstm" href="index.html">Новости</a></li>
 					<li class="new"><a class="firstm" href="about.html">Контакты</a></li>
 					<li class="new"><a class="firstm" href="admin/register.php">Вход</a></li>
-					<li class="new"><a class="firstm" href="">Регистрация</a></li>
+					<li class="new"><a class="firstm" href="admin/mainregister.php">Регистрация</a></li>
 				</ul>
 			</div>
 		</div>
@@ -58,8 +58,9 @@ if ( $userdate == false){
 		}
 else
 {
-echo $userdate.'   ';
-echo '<a href="/admin/logout.php">exit</a>';
+	echo "<p class = 'reginfo'>Добро пожаловать $userdate <a href='admin/logout.php'>Выйти</a>";
+/*echo $userdate.'   ';
+echo '<a href="/admin/logout.php">Войти в другой аккаунт</a>';*/
 }
 
 ?>

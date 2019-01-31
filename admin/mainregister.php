@@ -4,7 +4,7 @@ require_once('../lib/function.php');
 session_start();
 $userdate = checkreg();
 //if ( $userdate == false){
-logIn();   
+RegIn();   
 //}
 ?>
 <!DOCTYPE html>
@@ -38,8 +38,8 @@ logIn();
 				<?php
 				
 				?>
- <legend>Войти</legend>
- <form action="register.php" method="post">
+ <legend>Регистрация</legend>
+ <form action="mainregister.php" method="post">
  	<div>
  		<label for="name">Логин</label>
  		<input type="text" name="login" id="name" value="" tabindex="1" />
@@ -49,7 +49,7 @@ logIn();
  		<input type="password" name="password" id="name" value="" tabindex="1" />
  	</div> 
  	<div>
- 		<input type="submit" name="btnLogin" value="Войти" />
+ 		<input type="submit" name="btnReg" value="Зарегестрироваться" />
  	</div>
  </form>
 </fieldset>
