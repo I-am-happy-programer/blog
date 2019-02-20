@@ -1,6 +1,10 @@
-echo "# test" >> README.md
-git init
-git add README.md -a
+
+git status
+git -A
 git commit -m "first commit"
-git remote add origin https://github.com/I-am-happy-programer/test.git
 git push -u origin master
+
+
+
+git init
+git remote add origin https://github.com/I-am-happy-programer/blog.git
