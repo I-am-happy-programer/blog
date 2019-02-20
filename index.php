@@ -51,19 +51,6 @@ $userdate = checkreg();
 		<?php
 mailauth();
 vkauth();
-if(!isset($userInfo) || empty($userInfo) || !isset($userItem) || empty($userItem))
-{
-$userdate = checkreg();
-		if ( $userdate == false){
-			echo "<p class = 'reginfo'>Вы вошли как гость. <a href='admin/register.php'>Войти в	 аккаунт</a>";
-		}
-		
-else 
-{
-	echo "<p class = 'reginfo'>Добро пожаловать $userdate <a href='admin/logout.php'>Выйти</a>";
-
-}	
-}
 ?>
 	</div>
 

@@ -93,6 +93,19 @@ if(isset ($_SESSION['token']) && !empty( $_SESSION['token']) && !empty($userId) 
     echo "<p class = 'reginfo'>Добро пожаловать, $userItem->first_name $userItem->last_name <a href='admin/logout.php'>Выйти</a>";
 
 }
+    if(empty($userItem))
+    {
+        $userdate = checkreg();
+        if ( $userdate == false){
+            echo "<p class = 'reginfo'>Вы вошли как гость. <a href='admin/register.php'>Войти в	 аккаунт</a>";
+        }
+
+        else
+        {
+            echo "<p class = 'reginfo'>Добро пожаловать $userdate <a href='admin/logout.php'>Выйти</a>";
+
+        }
+    }
 }
 
 function mailauth()
@@ -165,5 +178,6 @@ function mailauth()
             echo "<br />";
         }
     }
+
 }
 ?>
