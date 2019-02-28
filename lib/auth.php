@@ -20,9 +20,8 @@ $params = array(
 );
 
 // Выводим на экран ссылку для открытия окна диалога авторизации
-echo '<a href="http://oauth.vk.com/authorize?' . http_build_query( $params ) . '">Авторизация через ВКонтакте</a>';
 
-if ( isset( $_GET['code'] ) ) {
+if ( isset( $_GET['code']) ) {
 
     $params = array(
         'client_id'     => $clientId,
@@ -57,7 +56,7 @@ if ( isset( $_GET['code'] ) ) {
         . '. Error reason: ' . $_GET['error_reason']
         . '. Error description: ' . $_GET['error_description'] );
 }
-if(isset ($_SESSION['token']) && !empty( $_SESSION['token']) && !empty($userId) && isset($userId))
+if(!empty($userId) && isset($userId))
 {
     $token = $_SESSION['token']; // Извлекаем токен из сессии
 
@@ -119,7 +118,6 @@ function mailauth()
         'response_type' => 'code',
         'redirect_uri'  => $redirect_uri
     );
-    echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($param)) . '">Авторизация через Mail.ru</a></p>';
     if (isset($_GET['code'])) {
         $result = false;
 
@@ -166,7 +164,7 @@ function mailauth()
         $userInfo = array_shift($userInfo);
         $result = true;
     }
-    if(isset ($_SESSION['token']) && !empty( $_SESSION['token']) && !empty($userInfo) && isset($userInfo)){
+    if(!empty($userInfo) && isset($userInfo)){
         if ($result) {
             echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
             echo "Имя пользователя: " . $userInfo['nick'] . '<br />';

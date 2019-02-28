@@ -25,19 +25,21 @@ function logIn(){
     	unset($_SESSION['userName']);
         $login=$_POST['login'];
         $password=$_POST['password'];
+        $search =   "'";
+        $replace = "";
         $link = mysqli_connect(
             'localhost',  /* Хост, к которому мы подключаемся */
             'homestead',       /* Имя пользователя */
             'secret',   /* Используемый пароль */
             'db-test');     /* База данных для запросов по умолчанию */
-        $str="SELECT id FROM user_table WHERE login = '".$login."' AND password = '".$password."'";
+        $str="SELECT id FROM user_table WHERE login = '".str_replace($search, $replace, $login)."' AND password = '".str_replace($search, $replace, $password)."'";
         
         $result = mysqli_query($link, $str);
         $row_cnt = $result->num_rows;
         //print_r($result);exit;
         if ($row_cnt == 1)
         {
-            $_SESSION['userName']=$login;
+            $_SESSION['userName']=str_replace($search, $replace, $login);
            header("Location: ../index.php");
 			exit;
         }
@@ -53,6 +55,8 @@ function RegIn(){
     	unset($_SESSION['userName']);
         $login=$_POST['login'];
         $password=$_POST['password'];
+        $search =   "'";
+        $replace = "";
         $link = mysqli_connect(
             'localhost',  /* Хост, к которому мы подключаемся */
             'homestead',       /* Имя пользователя */

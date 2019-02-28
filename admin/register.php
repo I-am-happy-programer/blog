@@ -1,11 +1,10 @@
 <?php
 require_once('../lib/rb.php');
 require_once('../lib/function.php');
+require_once('../admin/secondauth.php');
 session_start();
 $userdate = checkreg();
-//if ( $userdate == false){
 logIn();   
-//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +47,11 @@ logIn();
  		<label for="name">Пароль</label>
  		<input type="password" name="password" id="name" value="" tabindex="1" />
  	</div> 
+ 	<div>
+ 		<label for="name"><?php vk(); ?></label>
+ 		<label for="name"><?php mailru(); ?></label>
+
+ 	</div>
  	<div>
  		<input type="submit" name="btnLogin" value="Войти" />
  	</div>
