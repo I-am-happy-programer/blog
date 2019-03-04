@@ -1,5 +1,6 @@
 <?php
 
+
 function vkauth()
 {
 $clientId = '6847267'; // ID приложения
@@ -90,8 +91,11 @@ if(!empty($userId) && isset($userId))
         $userItem->last_name; // Фамилия
         $userItem->photo_100; // Фотография
     }
+    
+    $_SESSION['username']= $userItem->first_name;
+    $_SESSION['userlname']= $userItem->last_name;
 
-    echo "<p class = 'reginfo'>Добро пожаловать, $userItem->first_name $userItem->last_name <a href='admin/logout.php'>Выйти</a>";
+   // echo "<p class = 'reginfo'>Добро пожаловать, $userItem->first_name $userItem->last_name <a href='admin/logout.php'>Выйти</a>";
 
 }
     /*if(empty($userItem))
@@ -168,8 +172,8 @@ function mailauth()
     }
     if(!empty($userInfo) && isset($userInfo)){
         if ($result) {
-            echo "<p class = 'reginfo'>Добро пожаловать " . $userInfo['nick'] . "<a href='admin/logout.php'> Выйти</a> <br />";
-            echo '<img src="' . $userInfo['pic_small'] . '" />';
+            $_SESSION['username']=$userInfo['nick'];
+           // echo '<img src="' . $userInfo['pic_small'] . '" />';
             /*echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
             echo "Имя пользователя: " . $userInfo['nick'] . '<br />';
             echo "Email: " . $userInfo['email'] . '<br />';
@@ -180,7 +184,21 @@ function mailauth()
            // echo "<br />";
         }
     }
-    if(!isset( $_GET['code']) )
+   
+
+}
+function writeuser()
+{
+    if(isset( $_SESSION['username'])){
+        if(isset ($_SESSION['username']) && isset ($_SESSION['userlname']) )
+        {
+echo "<p class = 'reginfo'>Добро пожаловать " . $_SESSION['username'] , " " , $_SESSION['userlname']. "<a href='admin/logout.php'> Выйти</a> <br />";
+        }
+        else{
+echo "<p class = 'reginfo'>Добро пожаловать " . $_SESSION['username']. "<a href='admin/logout.php'> Выйти</a> <br />";
+}
+}
+ if(!isset( $_SESSION['username']) )
     {
         $userdate = checkreg();
         if ( $userdate == false){
@@ -193,6 +211,5 @@ function mailauth()
 
         }
     }
-
 }
 ?>

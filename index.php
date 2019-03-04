@@ -51,6 +51,7 @@ $userdate = checkreg();
 		<?php
 mailauth();
 vkauth();
+writeuser();
 ?>
 	</div>
 
@@ -62,7 +63,7 @@ vkauth();
 		<div class="col_7 maintext format">
 
 				<?php
-				showmain()>
+				showmain()
 				//echo "<pre>";print_r($news);
 
 				/*$link=mysqli_connect('localhost','homestead','secret','db-test');
