@@ -29,12 +29,13 @@ if ( isset( $_GET['code']) ) {
         'code'          => $_GET['code'],
         'redirect_uri'  => $redirectUri
     );
-
+$resvk = true;
     if (!$content = @file_get_contents('https://oauth.vk.com/access_token?' . http_build_query($params))) {
-        $error = error_get_last();
-        throw new Exception('HTTP request failed. Error: ' . $error['message']);
+       // $error = error_get_last();
+        //throw new Exception('HTTP request failed. Error: ' . $error['message']);
+        $resvk = false;
     }
-
+if($resvk == true){
     $response = json_decode($content);
 
     // Если при получении токена произошла ошибка
@@ -48,9 +49,10 @@ if ( isset( $_GET['code']) ) {
 
     // Сохраняем токен в сессии
     $_SESSION['token'] = $token;
+}
 
-
-} elseif ( isset( $_GET['error'] ) ) { // Если при авторизации произошла ошибка
+} 
+elseif ( isset( $_GET['error'] ) ) { // Если при авторизации произошла ошибка
 
     throw new Exception( 'При авторизации произошла ошибка. Error: ' . $_GET['error']
         . '. Error reason: ' . $_GET['error_reason']
@@ -92,7 +94,7 @@ if(!empty($userId) && isset($userId))
     echo "<p class = 'reginfo'>Добро пожаловать, $userItem->first_name $userItem->last_name <a href='admin/logout.php'>Выйти</a>";
 
 }
-    if(empty($userItem))
+    /*if(empty($userItem))
     {
         $userdate = checkreg();
         if ( $userdate == false){
@@ -104,7 +106,7 @@ if(!empty($userId) && isset($userId))
             echo "<p class = 'reginfo'>Добро пожаловать $userdate <a href='admin/logout.php'>Выйти</a>";
 
         }
-    }
+    }*/
 }
 
 function mailauth()
@@ -166,14 +168,29 @@ function mailauth()
     }
     if(!empty($userInfo) && isset($userInfo)){
         if ($result) {
-            echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
+            echo "<p class = 'reginfo'>Добро пожаловать " . $userInfo['nick'] . "<a href='admin/logout.php'> Выйти</a> <br />";
+            echo '<img src="' . $userInfo['pic_small'] . '" />';
+            /*echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
             echo "Имя пользователя: " . $userInfo['nick'] . '<br />';
             echo "Email: " . $userInfo['email'] . '<br />';
             echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
             echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
             echo "День Рождения: " . $userInfo['birthday'] . '<br />';
-            echo '<img src="' . $userInfo['pic_small'] . '" />';
-            echo "<br />";
+            echo '<img src="' . $userInfo['pic_small'] . '" />';*/
+           // echo "<br />";
+        }
+    }
+    if(!isset( $_GET['code']) )
+    {
+        $userdate = checkreg();
+        if ( $userdate == false){
+            echo "<p class = 'reginfo'>Вы вошли как гость. <a href='admin/register.php'>Войти в  аккаунт</a>";
+        }
+
+        else
+        {
+            echo "<p class = 'reginfo'>Добро пожаловать $userdate <a href='admin/logout.php'>Выйти</a>";
+
         }
     }
 

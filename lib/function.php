@@ -49,6 +49,14 @@ function logIn(){
     }
 
 }
+function showmain()
+{
+                    R::setup( 'mysql:host=localhost;dbname=db-test','homestead', 'secret' ); 
+                $news= R::findAll( 'news' );
+                foreach ($news as $new) {
+                    showMinNews($new['id'],$new['title'],$new['stext'],$new['ftext']);
+                    }
+}
 function RegIn(){
 	
     if (isset($_POST['btnReg'])){

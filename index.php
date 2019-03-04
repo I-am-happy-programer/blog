@@ -62,31 +62,18 @@ vkauth();
 		<div class="col_7 maintext format">
 
 				<?php
-				R::setup( 'mysql:host=localhost;dbname=db-test','homestead', 'secret' ); 
-
-				$news= R::findAll( 'news' );
-				//echo $news['title'];
-				foreach ($news as $new) {
-					showMinNews($new['id'],$new['title'],$new['stext'],$new['ftext']);
-
-				//		;
-				}
+				showmain()>
 				//echo "<pre>";print_r($news);
 
 				/*$link=mysqli_connect('localhost','homestead','secret','db-test');
 				$res = mysqli_query($link, "SELECT * FROM main_table;");
 				$row_cnt = mysqli_num_rows($res);*/
-				
-				
-				
-				/*for ($i=$row_cnt; $i != 0; $i--) { 
-					
+				/*for ($i=$row_cnt; $i != 0; $i--) { 					
 				showMinNews($i,'','','');
 			}
 /* закрытие соединения */
 //
 				?>
-
 				
 
 </div>
