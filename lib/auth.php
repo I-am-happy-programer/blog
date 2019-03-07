@@ -201,6 +201,7 @@ echo "<p class = 'reginfo'>Добро пожаловать " . $_SESSION['userna
  if(!isset( $_SESSION['username']) )
     {
         $userdate = checkreg();
+       // $isverifyf = $_SESSION['isverify'];
         if ( $userdate == false){
             echo "<p class = 'reginfo'>Вы вошли как гость. <a href='admin/register.php'>Войти в  аккаунт</a>";
         }

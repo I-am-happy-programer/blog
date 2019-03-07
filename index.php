@@ -26,7 +26,7 @@ $userdate = checkreg();
 			<div class="col_5">
 				<ul class="menu">
 					<li class="new"><a class="firstm" href="index.html">Новости</a></li>
-					<li class="new"><a class="firstm" href="about.html">Контакты</a></li>
+					<li class="new"><a class="firstm" href="#copy">Контакты</a></li>
 					<li class="new"><a class="firstm" href="admin/register.php">Вход</a></li>
 					<li class="new"><a class="firstm" href="admin/mainregister.php">Регистрация</a></li>
 				</ul>
@@ -39,7 +39,7 @@ $userdate = checkreg();
 			<li class="leftmenu"><a href="index.html">Главные новости</a></li>
 					<li class="leftmenu"><a href="12.html">Новости вашего города</a></li>
 					<li class="leftmenu"><a href="13.html">Политика</a></li>
-					<li class="leftmenu"><a href="https://vk.com/">Спорт</a></li>
+					<li class="leftmenu"><a href="#copy">Спорт</a></li>
 					<li class="leftmenu"><a href="https://vk.com/">Религия</a></li>
 					<li class="leftmenu"><a href="https://vk.com/">Автомобилистам</a></li>
 					<li class="leftmenu"><a href="https://vk.com/">Другое</a></li>
@@ -78,7 +78,7 @@ writeuser();
 				
 
 </div>
-		<div class="col_12 footer"><p class="copy">Copyright
+		<div class="col_12 footer"><p class="copy"><a name = "copy"> Copyright </a>
 			<div class="col_2 vk"><a href="https://vk.com/"><img src="vk_101783.png" width="60px" height="50px" /></a></div>
 			<div class="col_2 instagram"><a href="https://instagram.com/"/><img src="1491580635-yumminkysocialmedia26_83102.png" width="60px" height="50px"/></div>
 			<div class="col_2 twitter"><a href="https://twitter.com/"/><img src="twitter8.png" width="75px" height="50px"/></div>

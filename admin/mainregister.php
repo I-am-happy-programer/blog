@@ -49,6 +49,10 @@ RegIn();
  		<input type="password" name="password" id="name" value="" tabindex="1" />
  	</div> 
  	<div>
+ 		<label for="name">Эл. почта</label>
+ 		<input type="text" name="email" id="name" value="" tabindex="1" />
+ 	</div> 
+ 	<div>
  		<input type="submit" name="btnReg" value="Зарегестрироваться" />
  	</div>
  </form>
